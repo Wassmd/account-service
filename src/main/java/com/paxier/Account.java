@@ -10,10 +10,10 @@ import static com.paxier.AccountStatus.OVERDRAWN;
 @Data
 @Builder
 public class Account {
-    public final Long accountNumber;
-    public final Long customerNumber;
-    public String customerName;
-    public BigDecimal balance;
+    private final Long accountNumber;
+    private final Long customerNumber;
+    private String customerName;
+    private BigDecimal balance;
     @Builder.Default
     AccountStatus accountStatus = OPEN;
 
