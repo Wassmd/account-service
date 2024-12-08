@@ -1,9 +1,7 @@
 package com.paxier;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.math.BigDecimal;
@@ -27,4 +25,14 @@ public class AccountResource {
     public Set<Account> allAccounts() {
         return accounts;
     }
+
+    @GET
+    @Path("/{accountNumber}")
+    public Account getAccount(@PathParam("accountNumber") Long accountNumber) {
+        return accounts.stream()
+                .filter(it -> it.getAccountNumber().equals(accountNumber))
+                .findFirst()
+                .orElseThrow(() -> new NotFoundException("Account with id of "+ accountNumber + "doesn't exist"));
+    }
+
 }
