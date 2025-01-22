@@ -1,0 +1,10 @@
+POST http://localhost:8081/accounts
+Content-Type: application/json
+
+{
+  "id": -1,
+  "accountNumber": 1001,
+  "customerNumber": 1001,
+  "customerName": "Wasim",
+  "balance": 1000.0
+}
