@@ -9,8 +9,14 @@ import jakarta.ws.rs.core.MediaType;
 public class GreetingResource {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces("application/vnd.account-service.v1+json")
     public String hello() {
-        return "Hello from Quarkus REST";
+        return "Hello from Quarkus REST V1";
+    }
+
+    @GET
+    @Produces("application/vnd.account-service.v2+json")
+    public String hello1() {
+        return "Hello from Quarkus REST V2";
     }
 }
